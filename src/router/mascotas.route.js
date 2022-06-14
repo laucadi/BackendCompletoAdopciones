@@ -19,14 +19,13 @@ router.put(
   auth.verificarToken,
   mascotaCtrl.actualizarMascota
 );
-router.delete(
-  "/eliminarMascota/:id",
-  auth.verificarToken,
-  mascotaCtrl.eliminarMascota
-);
+router.delete("/eliminarMascota/:id", mascotaCtrl.eliminarMascota);
 router.get(
   "/buscarPorCoincidencia/:especie",
   mascotaCtrl.buscarPorCoincidencia
 );
+router.get("/mascotaPorUsuario/:id", mascotaCtrl.mascotaPorUsuario);
+
+router.get("/mascotas/img/:img", mascotaCtrl.obtenerImagen);
 
 module.exports = router;

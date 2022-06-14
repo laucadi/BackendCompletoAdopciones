@@ -12,6 +12,7 @@ const mascotasSchema = new Schema({
   fechaDeNacimiento: String,
   idusuario: { type: Schema.Types.ObjectId, ref: "usuarios" },
   imagen: String,
+  //idusuario: String,
   date: { type: Date, default: Date.now },
 });
 
