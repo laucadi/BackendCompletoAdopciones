@@ -9,7 +9,6 @@ const path = require("path");
 mascotaCtrl.crearMascota = async (req, res) => {
   const {
     nombre,
-    edad,
     especie,
     raza,
     estadoDeEsterilizacion,
@@ -21,7 +20,6 @@ mascotaCtrl.crearMascota = async (req, res) => {
   } = req.body;
   const nuevaMascota = new mascotaModels({
     nombre,
-    edad,
     especie,
     raza,
     estadoDeEsterilizacion,
@@ -46,11 +44,14 @@ mascotaCtrl.crearMascota = async (req, res) => {
   } else if (req.files) {
     const imagen_path = req.files.imagen.path;
     const name = imagen_path.split("\\");
-    const imagenCargada = name[3];
+    //const imagenCargada = name[3];
+    const imagenCargada = req.files.imagen.path
+      .replace(/\//g, "")
+      .replace(/\\/g, "")
+      .replace("srcuploadsmascotas", "");
 
     const nuevaMascota = new mascotaModels({
       nombre,
-      edad,
       especie,
       raza,
       estadoDeEsterilizacion,
@@ -87,6 +88,18 @@ mascotaCtrl.crearMascota = async (req, res) => {
   }
 };
 
+mascotaCtrl.obtenerImagen = async (req, res) => {
+  const { img } = req.params;
+
+  if (img != "null") {
+    let path_img = "src/uploads/mascotas/" + img;
+    res.status(200).sendFile(path.resolve(path_img));
+  } else {
+    let path_img = "src/uploads/mascotas/default.jpg";
+    res.status(200).sendFile(path.resolve(path_img));
+  }
+};
+
 mascotaCtrl.listar = async (req, res) => {
   const respuesta = await mascotaModels.find();
   res.json(respuesta);
@@ -114,4 +127,11 @@ mascotaCtrl.buscarPorCoincidencia = async (req, res) => {
   });
   res.json(respuesta);
 };
+
+mascotaCtrl.mascotaPorUsuario = async (req, res) => {
+  const id = req.params.id;
+  const respuesta = await mascotaModels.find({ idusuario: id });
+  res.json(respuesta);
+};
+
 module.exports = mascotaCtrl;
