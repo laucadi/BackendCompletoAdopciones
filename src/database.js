@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+
 //URL = "mongodb://localhost/BdAdopciones";
 
+//URL = "mongodb://localhost/BdAdopciones";
 URL =
   "mongodb+srv://LauCaicedo:diaz18210@cluster0.gyn1k.mongodb.net/BaseDeDatosAdopciones?retryWrites=true&w=majority";
 
