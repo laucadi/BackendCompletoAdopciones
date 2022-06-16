@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js --port $PORT"
+    "start": "node src/index.jsnpm"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "author": "",
   "license": "ISC",
