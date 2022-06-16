@@ -27,7 +27,7 @@ usuariosCtrl.crear = async (req, res) => {
   const correoUsuario = await usuariosModels.findOne({ correo: correo });
   if (correoUsuario) {
     res.json({
-      mensaje: " Este usuario ya existe, trata con un nuevo correo",
+      mensaje: "Este usuario ya existe, trata con un nuevo correo",
     });
   } else {
     nuevoUsuario.contrasena = await bcrypt.hash(contrasena, 10);
