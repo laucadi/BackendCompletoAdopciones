@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 
 require("./database");
 
-app.set('Port', process.env.PORT || 3000);
+app.set('Port', process.env.PORT || 5000);
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
