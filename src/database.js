@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-<<<<<<< HEAD
+
 // URL=('mongodb://localhost/bdmascotas');
 
 URL=('mongodb+srv://LauCaicedo:diaz18210@cluster0.gyn1k.mongodb.net/BaseDeDatosAdopciones?retryWrites=true&w=majority');
-=======
-URL = "mongodb://localhost/BdAdopciones";
->>>>>>> 3174bf3f14fea07a9cc49bfca8dfce1cafa27be8
+
+// URL = "mongodb://localhost/BdAdopciones";
+// >>>>>>> 3174bf3f14fea07a9cc49bfca8dfce1cafa27be8
 
 //URL =
 //"mongodb+srv://LauCaicedo:diaz18210@cluster0.gyn1k.mongodb.net/BaseDeDatosAdopciones?retryWrites=true&w=majority";
